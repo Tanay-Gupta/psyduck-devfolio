@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-color: #F8F9FA;
+  --primary-yellow: #FFC700;
+  --primary-blue: #00A9FF;
+  --accent-orange: #F97316;
+  --dark-text: #212529;
+  --heading-font: 'DotGothic16', sans-serif;
+  --body-font: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-color);
+  color: var(--dark-text);
+  overflow-x: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-heading {
+  font-family: var(--heading-font);
+}
+
+/* --- 3D Scroll Animations --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(100px) rotateX(-20deg) scale(0.9);
+  transform-origin: top center;
+  transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1), transform 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+}
+
+/* --- Scrolling Ribbon --- */
+.marquee {
+  white-space: nowrap;
+}
+.marquee-content {
+  display: inline-block;
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Doodles & Parallax --- */
+.doodle {
+  position: absolute;
+  opacity: 0.6;
+  transition: transform 0.5s ease-out;
+  z-index: -1;
+}
+
+/* --- Project Card Hover --- */
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* --- Anime Download Button --- */
+.btn-anime {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.btn-anime::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(from 180deg at 50% 50%, var(--primary-yellow), var(--primary-blue), var(--accent-orange), var(--primary-yellow));
+  z-index: -1;
+  transform-origin: center;
+  transform: translate(-50%, -50%);
+  animation: spin 4s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.btn-anime:hover::before {
+  opacity: 1;
+}
+@keyframes spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Mobile Timeline */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 1.5rem;
+  }
+  .timeline-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+  .timeline-item > .timeline-content, .timeline-item > .timeline-image {
+    width: 100% !important;
+    padding-left: 4rem;
+  }
+  .timeline-item > .timeline-content {
+    order: 2;
+  }
+  .timeline-item > .timeline-image {
+    order: 1;
+    margin-bottom: 1rem;
+  }
+  .timeline-item.image-left > .timeline-content {
+    order: 2;
+  }
+  .timeline-item.image-left > .timeline-image {
+    order: 1;
+  }
+  .timeline-dot {
+    left: 1.5rem !important;
+  }
+}
