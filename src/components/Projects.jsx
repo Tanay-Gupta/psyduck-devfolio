@@ -7,7 +7,7 @@ const ProjectCard = ({ imgSrc, title, description, link }) => (
         <div className="p-6 md:p-8">
             <h3 className="font-heading text-2xl font-bold mb-2">{title}</h3>
             <p className="text-gray-600 mb-4">{description}</p>
-            <a href={link} className="font-bold text-[var(--primary-blue)] hover:underline">View Case Study &rarr;</a>
+            <a href={link} className="font-bold text-[var(--primary-blue)] hover:underline">View &rarr;</a>
         </div>
     </div>
 );
@@ -17,16 +17,16 @@ const Projects = () => {
 
     const projectData = [
         {
-            imgSrc: "https://placehold.co/600x400/00A9FF/FFFFFF?text=Contest+Hunt",
+            imgSrc: "https://raw.githubusercontent.com/Tanay-Gupta/tanay-gupta.github.io/refs/heads/main/assets/assets/images/projects/contesthunt/2.png",
             title: "Contest Hunt - Coding Calendar",
-            description: "A full-stack app to track coding contests, hackathons, and bug bounty events across 15+ platforms, helping 1K+ users stay updated.",
-            link: "#"
+            description: "A full-stack app to track coding contests, hackathons, and bounty events across 15+ platforms, helping 1K+ users stay updated.",
+            link: "https://play.google.com/store/apps/details?id=com.miraidyo.contesthunt"
         },
         {
-            imgSrc: "https://placehold.co/600x400/FFC700/374151?text=Birdwatcher",
-            title: "Birdwatcher's Assistant",
-            description: "A mobile App with offline bird species detection and information generation using Python, Flutter, Firebase, and TensorFlow Lite.",
-            link: "#"
+            imgSrc: "https://github.com/Tanay-Gupta/tanay-gupta.github.io/blob/main/assets/assets/images/projects/roastmyresume/1.png?raw=truehttps://raw.githubusercontent.com/Tanay-Gupta/tanay-gupta.github.io/refs/heads/main/assets/assets/images/projects/roastmyresume/1.png",
+            title: "RoastMyResume",
+            description: "RoastMyResume is an innovative web application that leverages AI to provide witty, honest, and constructive feedback on resumes. The application helps users transform their lackluster CVs into job-winning powerhouses through a humorous yet effective roasting process.",
+            link: "https://roastmyresume.streamlit.app/"
         }
     ];
 
